@@ -60,12 +60,13 @@ skin
 
 .time {
   padding: var(--timePadding, 0.25rem 1.25rem 0.25rem);
-  background-color: var(--timeBackgroundColor, #a8d1ff);
+  background-color: #5e42a6;
 
   font-size: var(--timeFontSize, 0.75rem);
   font-weight: var(--timeFontWeight, 700);
   text-transform: var(--timeTextTransform, uppercase);
   color: var(--timeColor, currentColor);
+  border-radius: 100px;
 }
 
 /*
@@ -89,15 +90,15 @@ skin
 */
 
 .card {
-  border-radius: var(--timelineCardBorderRadius, 2px);
-  border-left: var(--timelineCardBorderLeftWidth, 3px) solid
-    var(--timelineCardBorderLeftColor, var(--uiTimelineMainColor));
+  border-radius: 10px;
+  border-left: 3px solid #5e42a6;
   box-shadow: var(
     --timelineCardBoxShadow,
     0 1px 3px 0 rgba(0, 0, 0, 0.12),
     0 1px 2px 0 rgba(0, 0, 0, 0.24)
   );
-  background-color: var(--timelineCardBackgroundColor, #a8d1ff);
+  background-color: #312450;
+  color: white;
 }
 
 /*
@@ -143,17 +144,16 @@ SKIN
   --uiTimelineMainColor: var(--timelineMainColor, #222);
   --uiTimelineSecondaryColor: var(--timelineSecondaryColor, #a8d1ff);
 
-  border-left: var(--timelineLineWidth, 3px) solid
-    var(--timelineLineBackgroundColor, var(--uiTimelineMainColor));
   padding-top: 1rem;
   padding-bottom: 1.5rem;
 }
 
 .timeline__year {
   --timePadding: var(--timelineYearPadding, 0.5rem 1.5rem);
-  --timeColor: var(--uiTimelineSecondaryColor);
-  --timeBackgroundColor: var(--uiTimelineMainColor);
   --timeFontWeight: var(--timelineYearFontWeight, 400);
+  background-color: #5e42a6;
+  color: white;
+  border-radius: 100px;
 }
 
 .timeline__card {
@@ -170,22 +170,6 @@ SKIN
   padding-top: 0.25rem; /* 1 */
   padding-bottom: 0.25rem; /* 1 */
 }
-
-.timeline__card::before {
-  content: "";
-  width: 100%;
-  height: var(--timelineCardLineWidth, 2px);
-  background-color: var(
-    --timelineCardLineBackgroundColor,
-    var(--uiTimelineMainColor)
-  );
-
-  position: absolute;
-  top: var(--timelineCardLineTop, 1rem);
-  left: -50%;
-  z-index: -1;
-}
-
 /*
 =====
 SETTINGS

@@ -1,7 +1,7 @@
 // const web3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545');
 
 // NETWORK_ID = 97; //97 = BSTTest, 5 = ETH GOERLI
-NETWORK_ID = 940; //97 = BSTTest, 5 = ETH GOERLI, 43113 = testnet
+NETWORK_ID = 97; //97 = BSTTest, 5 = ETH GOERLI, 43113 = testnet
 // const contractAddress = "0xaDF174f0f2498bf391577A3B18CE47cd03c92a66"; // AVAX test net address
 networkName = "PulseChain TestNet ";
 contractAddress = "SET ME BELOW"; // Polygon test net address
@@ -487,30 +487,3 @@ function showWalletAddress() {
 function copySacAddress() {
   navigator.clipboard.writeText("0x0fa171becbb88c5df39919c5d6c88a97c6b21dc2");
 }
-
-var countDownDate = new Date(2021, 10, 16).getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function () {
-  // Get today's date and time
-  var now = new Date().getTime();
-
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById("CountDownID").innerHTML =
-    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("CountDownID").innerHTML = "EXPIRED";
-  }
-}, 1000);

@@ -46,6 +46,8 @@ blockquote, q {
 	}
 
 table {
+	background-color:#312450;
+	border-radius: 10px;
 	border-collapse: collapse;
 	border-spacing: 0;
 }
@@ -2303,6 +2305,7 @@ input, select, textarea {
 		font-size: 1.1em;
 	}
 
+	input[type="datetime-local"],
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
@@ -2324,7 +2327,7 @@ input, select, textarea {
 		text-decoration: none;
 		width: 100%;
 	}
-
+	input[type="datetime-local"]:invalid,
 		input[type="text"]:invalid,
 		input[type="password"]:invalid,
 		input[type="email"]:invalid,
@@ -2333,7 +2336,7 @@ input, select, textarea {
 		textarea:invalid {
 			box-shadow: none;
 		}
-
+		input[type="datetime-local"]:focus,
 		input[type="text"]:focus,
 		input[type="password"]:focus,
 		input[type="email"]:focus,
@@ -2366,7 +2369,7 @@ input, select, textarea {
 		select::-ms-expand {
 			display: none;
 		}
-
+	input[type="datetime-local"],
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
@@ -2552,11 +2555,11 @@ input, select, textarea {
 				}
 
 				.wrapper.style3 .icon.major:before {
-					color: #b74e91;
+					color: #5E42A6;
 				}
 
 				.wrapper.style3-alt .icon.major:before {
-					color: #953d75;
+					color: #5E42A6;
 				}
 
 /* Image */
@@ -3022,12 +3025,12 @@ input, select, textarea {
 				-webkit-transition: opacity 1s ease;
 				-ms-transition: opacity 1s ease;
 				transition: opacity 1s ease;
-				background: rgba(49, 36, 80, 0.9);
+				background: rgba(49, 36, 80, 0.6);
 				content: '';
 				display: block;
 				height: 100%;
 				left: 0;
-				opacity: 0;
+				opacity: 1;
 				position: absolute;
 				top: 0;
 				width: 100%;
@@ -3154,14 +3157,14 @@ input, select, textarea {
 			}
 
 		table td {
-			padding: 0.75em 0.75em;
+			padding: 1.75em 1.75em;
 		}
 
 		table th {
 			color: #ffffff;
 			font-size: 1em;
 			font-weight: bold;
-			padding: 0 0.75em 0.75em 0.75em;
+			padding: 0.75em 0.75em 0.75em 0.75em;
 			text-align: left;
 		}
 
@@ -3248,7 +3251,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style2 {
-			background-color: #5052b5;
+			background-color:w
 		}
 
 		.wrapper.style2-alt {
@@ -3256,11 +3259,11 @@ input, select, textarea {
 		}
 
 		.wrapper.style3 {
-			background-color: #b74e91;
+			background-color: #5E42A6;
 		}
 
 		.wrapper.style3-alt {
-			background-color: #953d75;
+			background-color: #5E42A6;
 		}
 
 		.wrapper.fullscreen {
@@ -3906,4 +3909,4 @@ input, select, textarea {
 				background-attachment: scroll;
 			}
 
-		}
+		}wc		}wc
