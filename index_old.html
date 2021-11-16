@@ -13,7 +13,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/timeline.css?v=1.4.11" />
 		<link rel="stylesheet" href="assets/css/main.css?=v1.4.11" />
-		<link rel="stylesheet" href="assets/css/home.css" />
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js"></script> -->
 		<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
@@ -21,7 +20,8 @@
 
 		<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
-			
+				<script src="dist/daxeScript.js?v=1.4.11"
+        type="application/javascript"></script>		
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload"  onload="initialize()">
@@ -53,21 +53,27 @@
 				<!-- Intro -->
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
 						<div class="inner">
-							<img src="images/DAXE WHITE LOGO.svg" width="50%" height="50%" />
+							<img src="images/DAXE_LOGO_9_Small.jpg" width="50%" height="50%" />
 							<!-- <h1>$DAXE </h1>
 							<p>The True Blockchain Certificate of Deposit.</p> -->
 							<ul class="actions">
 								<li><a href="https://pancake.kiemtienonline360.com/#/swap?outputCurrency=0x5435F764717dc82198EdA554B31394fF4b7D2b47" target="_blank" id="buyURLID" class="button scrolly">Buy DAXE</a></li>
 								<li><a href="#one" class="button scrolly">Stake DAXE</a></li>
 							</ul>
-						
-							<div class="count">
-								<p class="sac-count">sacrifice phase</p>
-								<p id="CountDownID"></p>
-								<p class="sac-end">will end Nov 15 at midnight Pacific Time!!!</p>
+
+
+							<div style="text-align: center; ">
+								<label style="background-color: #f5acffbd; text-align:center">
+									TESTNET: This site is running on BSC TESTNET until Nov 17 GO-LIVE.
+								</label>
+								<label  style="text-align: center; ">
+									<a href="sacrifice.html" style="color:rgb(229, 255, 113)"><h1>SACRIFICE PHASE</h1></a> 
+									 will end Nov 15 at midnight Pacific Time!!! 
+								</label>
 								
+								<h2 id="CountDownID" style="text-align: center; "></h2>
+								<a href="sacrifice.html" class="button scrolly" style="background-color : #99c5f8bd">Sacrifice -></a>
 							</div>
-							<a href="sacrifice.html" class="button scrolly" style="background-color :white; color:#5E42A6!important;">Sacrifice &#x27A1</a>
 
 							
 							
@@ -77,24 +83,24 @@
 					</section>
 
 				<!-- One -->
-					<section id="one" style="background-color: white;" class="wrapper spotlights">
+					<section id="one" class="wrapper style2 spotlights">
 						<section>
 							<a href="#" class="image"><img src="images/PIC-1.jpg" alt="" data-position="center center" /></a>
 							<div class="content">
 								<div class="inner">
-									<h2 style="color:#5E42A6;">Stake</h2> 
-									<button onclick="connectWallet()" style="background-color : #312450" >Refresh Balances</button>
+									<h2>Stake</h2> 
+									<button onclick="connectWallet()" style="background-color : #99c5f8bd" >Refresh Balances</button>
 
 									<p>
 										<div>
 											<table>
 												<tr>
 													<td>
-															<span class="tag">Wallet Address</span> <label id = "addressID">Not Connected</label>
+															Wallet Address <label id = "addressID">Not Connected</label>
 
 													</td>
 													<td>
-														<span class="tag">DAXE Balance</span><label id = "DAXBalanceID"> ... DAXE </label>
+															DAXE Balance <label id = "DAXBalanceID"> ... DAXE </label>
 														
 													</td>
 												</tr>
@@ -102,13 +108,13 @@
 											<Table>
 													<tr>
 														<td>
-															<label id = "stakedDAXID" class="tag"> Stake Amount: </label>
+															<label id = "stakedDAXID"> Stake Amount: </label>
 															
 																<input id="amountToStakeID" type="text" placeholder="--Amount--" onchange="calculateDays()"></input>
-																<p id="selectMaxDaxID" onclick="selectMaxDax()">↑ Tap here for Max ↑</p>  
+																&nbsp; <text id="selectMaxDaxID" onclick="selectMaxDax()">↑ Tap here for Max ↑</text> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
 														</td>
 														<td>	
-															<label for="releaseDateID" class="tag">Select stake end:</label>
+															<label for="releaseDateID">Select stake end:</label>
 															<input id="releaseDateID" type="datetime-local" name="partydate" min="2021-11-01T08:30" max="2038-11-30T16:30" onchange="calculateDays()">
 															<div><span id="numDaysStakeID">0</span> Days</div>
 															<!-- <div id="numDaysStakeID">0</div>Days									 -->
@@ -120,14 +126,14 @@
 													</tr>
 													<tr>
 														<td>
-																<label class="payout">Projected pay out:  <span id="projectedPayoutID" >0</span></label>
+																<label >Projected pay out: <span id="projectedPayoutID" >0</span></label>
 														</td>
-														<td class="btn-td">
+														<td>
 
-																		<button onclick="stakeToken()" style="background-color : #5E42A6;border:none!important;" >Stake</button>
+																		<button onclick="stakeToken()" style="background-color : #99c5f8bd" >Stake</button>
 
 
-																<a href="https://pancake.kiemtienonline360.com/#/swap?outputCurrency=0x486c720F1462abD0C41e7919A62d0A3E5affFC6b" id = "buyURLID2" target="_blank" class="button scrolly">Get DAXE &#x27A1</a>
+																<a href="https://pancake.kiemtienonline360.com/#/swap?outputCurrency=0x486c720F1462abD0C41e7919A62d0A3E5affFC6b" id = "buyURLID2" target="_blank" class="button scrolly" style="background-color : #c7f899bd">Get DAXE &#x27A1</a>
 														</td>
 
 													</tr>
@@ -173,9 +179,9 @@
 										<div>
 											<Table>
 												<tr>
-													''
-														<td><p style="color:white;"><label class="tag">Initial Stake: </label> Initial amount of token staked.</p></td>
-															<td><p style="color:white;"><label class="tag">Current Value: </label> Initial amount + cummulated base interest + cummulated long interest+ bonus from other users early unstake.</p></td>
+													
+														<td><p><label>Initial Stake: </label> Initial amount of token staked.</p></td>
+															<td><p><label>Current Value: </label> Initial amount + cummulated base interest + cummulated long interest+ bonus from other users early unstake.</p></td>
 												</tr>
 										</Table>
 										</div>
@@ -186,7 +192,7 @@
 								</div>
 							</div>
 						</section>
-						<section style="background-color:#5E42A6;">
+						<section>
 							<a href="#" class="image"><img src="images/PIC-2.jpg" alt="" data-position="top center" /></a>
 							<div class="content">
 								<div class="inner">
@@ -196,7 +202,7 @@
 													<tr>
 															<td>
 																	<div>
-																			<label class="tag">Staked DAXE</label> <label id = "DAXBalanceID"> ... DAXE </label>
+																			Staked DAXE <label id = "DAXBalanceID"> ... DAXE </label>
 																	</div>
 	
 															</td>
@@ -223,105 +229,93 @@
 								</div>
 							</div>
 						</section>
-						<section id="six" style="background-color:white;">
+						<section id="six">
 							<a href="#five" class="image"><img src="images/PIC-3.jpg" alt="" data-position="center center" /></a>
-							<div class="content" style="color:#312450">
+							<div class="content" style="color:rgb(234, 255, 254)">
 								<div class="inner">
-									<h2 style="color:#5E42A6">FAQ</h2>
+									<h2>FAQ</h2>
 									<p>DAXE: the people's certificate of deposit. </p>
 
 									<div>
-
-
-											<h3><span class="circle"></span>When is DAXE going live?</h3>
-													<ul>
-															<li>
-																Go-Live on BSC will be Nov 17 2021. Check our roadmap for timeline on other networks.
-															</li>
-													</ul>
-
-						
-											<h3><span class="circle"></span>What are the main advantages of DAXE?</h3>
-														<ul>
-																<li>
-																		Allow everyone that has missed the best value growth in HEX to have the opportunity to get similar gains. (HEX on pulse will not give 10,000% returns because HEX has already appreciated so much).
-																</li>
-																<li>Allow small players to participate: small hex purchases and small HEX stakes are priced out right now due to high transaction fees. 
-																</li>
-																<li>
-																	Holders of DAXE in early networks will be eligible for airdrops on future networks.
-																</li>
-
-														</ul>
-
-
-											
-												<h3><span class="circle"></span>What does DAX really do?</h3>
+											<ul>
+													<li>
+														<h3>When is DAXE going live?</h3>
+														Go-Live on BSC will be Nov 17 2021. Check our roadmap for timeline on other networks.
+													</li>
+													<li>
+															<h3>What are the main advantages of DAXE?</h3>
 																<ul>
-																	<li>DAXE is a store of value coin.</li>
-																	<li>None of that fancy stuff like ETH, or NFT or governance coins. </li>
-																	<li>DAXE is in the same camp as Bitcoin and HEX. They are both store of value. </li>
-																	<li>The way Bitcoin gains value is through adoption, same thing with HEX. The difference is that Bitcoin is a proof of work, DAXE is a proof of wait. 
-																			This means that DAXE rewards go to those who promise to stake (I.e. not sell) and it rewards them exponentially more as time increases.</li>
-																	<li>This last bit is important because when you stake, you take coins out of circulation and this contributes to supply shock, in turn growing the value of the coin.</li>
-																	<li>You can see the effect of this in the chart of <a href="https://www.tradingview.com/chart/HEXUSDC" target="_blank"> HEX.</a></li>
+																		<li>
+																				Allow everyone that has missed the best value growth in HEX to have the opportunity to get similar gains. (HEX on pulse will not give 10,000% returns because HEX has already appreciated so much).
+																		</li>
+																		<li>Allow small players to participate: small hex purchases and small HEX stakes are priced out right now due to high transaction fees. 
+																		</li>
+																		<li>
+																			Holders of DAXE in early networks will be eligible for airdrops on future networks.
+																		</li>
 
 																</ul>
+													</li>
+													<li>
+															<h3>What does DAX really do?</h3>
+															DAXE is a store of value coin. 
 
+															None of that fancy stuff like ETH, or NFT or governance coins. 
 
-												<h3><span class="circle"></span>Is DAXE a HEX killer?</h3>
-																<ul>
-																	<li>	Absolutely not, in fact we love HEX and love @RichardHeart win. 1% of circulating supply of DAXE will be donated to the HEX Origin Address. <br/>
-																		We aim to provide another opportunity for those that missed the beginnings of HEX to take advantage of another Crypto Certificate of Deposit on networks 
-																		where the little guy isn't priced out.</li>
-																</ul>
-														
+															DAXE is in the same camp as Bitcoin and HEX. They are both store of value. 
 
-												<h3><span class="circle"></span>What is DAXE token allocation?</h3>
-																<ul>
-																	<li>Just like HEX, DAXE will have an Origin Address with a similar allocation to that of the Origin address of HEX.
-																			The liquidity for DAXE will be intentionally kept low, we want supply economics to directly benefit holders.
-																			Circulating supply of DAX will be 220Bn.</li>
-																</ul>
+															The way Bitcoin gains value is through adoption, same thing with HEX. The difference is that Bitcoin is a proof of work, DAXE is a proof of wait. 
+															This means that DAXE rewards go to those who promise to stake (I.e. not sell) and it rewards them exponentially more as time increases. 
+
+															This last bit is important because when you stake, you take coins out of circulation and this contributes to supply shock, in turn growing the value of the coin. 
+
+															You can see the effect of this in the chart of <a href="https://www.tradingview.com/chart/HEXUSDC" target="_blank"> HEX.</a>
 															
+													</li>
+													<li>
+															<h3>Is DAXE a HEX killer?</h3>
+															Absolutely not, in fact we love HEX and love @RichardHeart win. 1% of circulating supply of DAXE will be donated to the HEX Origin Address. <br/>
+															We aim to provide another opportunity for those that missed the beginnings of HEX to take advantage of another Crypto Certificate of Deposit on networks 
+															where the little guy isn't priced out.
+													</li>
+													<li>
+															<h3>What is DAXE token allocation?</h3>
+															Just like HEX, DAXE will have an Origin Address with a similar allocation to that of the Origin address of HEX.
+															The liquidity for DAXE will be intentionally kept low, we want supply economics to directly benefit holders.
+															Circulating supply of DAX will be 220Bn.
 															
+													</li>
+													<li>
+															<h3>What will the initial Market Cap be?</h3>
+															Initial Market Cap will be very small it will not exceed $5,000. 
 
-												<h3><span class="circle"></span>What will the initial Market Cap be?</h3>
-																<ul>
-																	<li>
-																			Initial Market Cap will be very small it will not exceed $5,000. 
+															This will enable rapid value appreciation and will make sure that
+															 those who get it early benefit far more. 
+															Just like HEX where those who jumped in early with modest amounts
+															 even outdid later whales. 
 
-																			This will enable rapid value appreciation and will make sure that
-																			those who get it early benefit far more. 
-																			Just like HEX where those who jumped in early with modest amounts
-																			even outdid later whales. 
-				
-																			All that said, we are not promising anything to anyone.
-																			We encourage you to find out why it would be advantageous to
-																			participate in a cross-chain Certificate of Deposit, with low
-																			initial market cap and low LP, and understand why these are very
-																			important.<br/><br/>
-				
-																			Example: From $0.002 to $100 there is 50,000x return. 
-																			From $10M to $1Bn there is 100x return.
-																			
-																			So a bigger initial market cap isn't better for early investors.<br/><br/>
-																	</li>
-																</ul>
-												
+															All that said, we are not promising anything to anyone.
+															We encourage you to find out why it would be advantageous to
+															participate in a cross-chain Certificate of Deposit, with low
+															initial market cap and low LP, and understand why these are very
+															important.<br/><br/>
 
-															<h3><span class="circle"></span>Will DAXE launch on any other network?</h3>
-															<ul>
-																<li>
-																		Initial networks will be BSC, AVAX, PulseChain, Solana.<BR/>
-																		The team is discussing possibility of launching on VLX, Polygon/Matic and ADA.
-																		These will be announced.
-																		Holders on early networks will be eligible for Airdrops on new networks.
-																</li>
-															</ul>
+															Example: From $0.002 to $100 there is 50,000x return. 
+															From $10M to $1Bn there is 100x return.
+															
+															So a bigger initial market cap isn't better for early investors.<br/><br/>
 
-
-															<h3><span class="circle"></span>DAXE Power?</h3>
+													</li>
+													<li>
+															<h3>Will DAXE launch on any other network?</h3>
+															Initial networks will be BSC, AVAX, PulseChain, Solana.<BR/>
+															The team is discussing possibility of launching on VLX, Polygon/Matic and ADA.
+															These will be announced.
+															Holders on early networks will be eligible for Airdrops on new networks.
+												</li>
+	
+													<li style="color:#a8d1ff">
+															<h3 style="color:#a8d1ff">DAXE Power?</h3>
 															<ul>
 																	<li>
 																		Locked liquidity for 5555 days.
@@ -337,7 +331,9 @@
 																	</li>
 	
 															</ul>
-												
+													</li>
+														 
+												</ul>
 									</div>
 
 									<div class="page">
@@ -435,40 +431,40 @@
 			
 			
 
-												
-										</div>
-										<div class="timeline__group">
-												<span class="timeline__year time" aria-hidden="true">Dec 22, 2021</span>
-												<div class="timeline__cards">
-													<div class="timeline__card card">
-														<header class="card__header">
-															<time class="time" datetime="2008-02-02">
-																<span class="time__day">22</span>
-																<span class="time__month">Dec</span>
-															</time>
-														</header>
-														<div class="card__content">
-															<p>DAXE Cross-Chain Bridge is live.</p>
-														</div>
-													</div>
-													<div class="timeline__card card">
-														<header class="card__header">
-															<time class="time" datetime="2008-09-01">
-																<span class="time__day"></span>
-																<span class="time__month">Dec-Jan</span>
-															</time>
-														</header>
-														<div class="card__content">
-																<p>PulseChain Go-Live</p>
+												<div class="timeline__group">
+														<span class="timeline__year time" aria-hidden="true">Dec 22, 2021</span>
+														<div class="timeline__cards">
+															<div class="timeline__card card">
+																<header class="card__header">
+																	<time class="time" datetime="2008-02-02">
+																		<span class="time__day">22</span>
+																		<span class="time__month">Dec</span>
+																	</time>
+																</header>
+																<div class="card__content">
+																	<p>DAXE Cross-Chain Bridge is live.</p>
+																</div>
 															</div>
-													</div>
-												</div>
+															<div class="timeline__card card">
+																<header class="card__header">
+																	<time class="time" datetime="2008-09-01">
+																		<span class="time__day"></span>
+																		<span class="time__month">Dec-Jan</span>
+																	</time>
+																</header>
+																<div class="card__content">
+																		<p>PulseChain Go-Live</p>
+																	</div>
+															</div>
+														</div>
 
 
 
 
 
-									</div>
+											</div>
+										</div>
+
 
 									</div>
 									
@@ -573,8 +569,6 @@
 			</footer>
 
 		<!-- Scripts -->
-			<script src="dist/daxeScript.js" type="application/javascript"></script>
-			<script src="dist/countdown.js" type="application/javascript"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
