@@ -26,7 +26,7 @@ if (NETWORK_ID == 5) {
   networkName = "BSC TESTNET";
   RPC_URL = "https://data-seed-prebsc-1-s1.binance.org:8545";
   baseDexURL = "https://pancake.kiemtienonline360.com/#/swap?outputCurrency=";
-  contractAddress = "0x9213B82ad6586977df68ae1579673AC23C28594f";
+  contractAddress = "0x08f527a3D3Fe3f54Fc72e6d3146C9FCde9791fe1";
 } else if (NETWORK_ID == 111) {
   networkName = "VLX TestNet";
   RPC_URL = "https://evmexplorer.testnet.velas.com/rpc";
@@ -224,7 +224,7 @@ async function stakeToken() {
     .then(updateInfo());
   timmay = 0.1;
 
-  await setTimeout(updateInfo, 6000);
+  await setTimeout(updateInfo, 3000);
   // await updateInfo();
 }
 
@@ -237,7 +237,7 @@ async function unstakeToken() {
   await txContract.endStake(amountToStake).then(updateInfo());
   timmay = 0.1;
 
-  await setTimeout(updateInfo, 6000);
+  await setTimeout(updateInfo, 3000);
   // await updateInfo();
 }
 
@@ -257,6 +257,8 @@ async function connectWalletFollow(netVersion) {
     document.getElementById("connectButtonID").innerHTML = "Wrong Network !";
     return -1;
   }
+  document.getElementById("connectButtonID").innerHTML = "Connecting...";
+  document.getElementById("connectButtonID").style.background = "#ffa85c";
 
   try {
     ownerAddress = await window.ethereum.request({
@@ -265,7 +267,7 @@ async function connectWalletFollow(netVersion) {
     ownerAddress = ownerAddress[0];
     // console.log("timmay 22 ... " + ownerAddress);
 
-    await setTimeout(updateInfo, 6000);
+    await setTimeout(updateInfo, 3000);
 
     // await updateInfo();
   } catch (err) {

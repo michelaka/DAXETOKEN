@@ -1,4 +1,6 @@
-var countDownDate = new Date(2021, 10, 21).getTime();
+// var countDownDate = new Date(2021, 10, 22).getTime();
+var countDownDate = new Date(Date.UTC(2021, 10, 22, 8, 0, 0));
+console.log("When it ends =  ", countDownDate);
 
 // Update the count down every 1 second
 var x = setInterval(function () {
