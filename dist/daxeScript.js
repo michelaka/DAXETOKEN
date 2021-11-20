@@ -26,7 +26,7 @@ if (NETWORK_ID == 5) {
   networkName = "BSC TESTNET";
   RPC_URL = "https://data-seed-prebsc-1-s1.binance.org:8545";
   baseDexURL = "https://pancake.kiemtienonline360.com/#/swap?outputCurrency=";
-  contractAddress = "0x08f527a3D3Fe3f54Fc72e6d3146C9FCde9791fe1";
+  contractAddress = "0xA49B71FBD8BE8b5c6FA72D7A941e40e77Aa95CC3";
 } else if (NETWORK_ID == 111) {
   networkName = "VLX TestNet";
   RPC_URL = "https://evmexplorer.testnet.velas.com/rpc";
@@ -82,10 +82,10 @@ window.ethereum.on("disconnect", () => {
 });
 
 function initialize() {
-  // document.getElementById("buyURLID").href = baseDexURL + contractAddress;
-  // document.getElementById("buyURLID2").href = baseDexURL + contractAddress;
-  document.getElementById("buyURLID").href = "sacrifice.html";
-  document.getElementById("buyURLID2").href = "sacrifice.html";
+  document.getElementById("buyURLID").href = baseDexURL + contractAddress;
+  document.getElementById("buyURLID2").href = baseDexURL + contractAddress;
+  // document.getElementById("buyURLID").href = "sacrifice.html";
+  // document.getElementById("buyURLID2").href = "sacrifice.html";
   document.getElementById("networkNameID").innerHTML = networkName;
 
   // var todayDate = new Date();
@@ -401,7 +401,7 @@ function showStakedBalances(stakedBalances) {
     cell1.innerHTML = "" + stakedBalances[i][0];
     cell2 = row.insertCell(1);
     cell2.innerHTML =
-      "" + Math.floor(ethers.utils.formatEther(stakedBalances[i][4]));
+      "" + Math.floor(ethers.utils.formatEther(stakedBalances[i][1]));
     cell3 = row.insertCell(2);
     cell3.innerHTML = "" + formatDate(startDate);
     cell4 = row.insertCell(3);
@@ -415,10 +415,11 @@ function showStakedBalances(stakedBalances) {
     cell6.innerHTML =
       "<b>" +
       Math.floor(
-        computeTotalInterest(
-          Math.floor(ethers.utils.formatEther(stakedBalances[i][1])),
-          daysStaked
-        )
+        Math.floor(ethers.utils.formatEther(stakedBalances[i][4])) +
+          computeTotalInterest(
+            Math.floor(ethers.utils.formatEther(stakedBalances[i][1])),
+            daysStaked
+          )
       ) +
       "</b>";
     cell7 = row.insertCell(5);
