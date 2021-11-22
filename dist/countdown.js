@@ -23,6 +23,6 @@ var x = setInterval(function () {
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("CountDownID").innerHTML = "EXPIRED";
+    document.getElementById("CountDownID").innerHTML = "SACRIFICE PHASE ENDED.";
   }
 }, 1000);

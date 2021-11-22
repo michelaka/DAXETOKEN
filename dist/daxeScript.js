@@ -495,3 +495,7 @@ function showWalletAddress() {
 function copySacAddress() {
   navigator.clipboard.writeText("0x0fa171becbb88c5df39919c5d6c88a97c6b21dc2");
 }
+
+function copyDAXEAddress() {
+  navigator.clipboard.writeText("" + contractAddress);
+}
