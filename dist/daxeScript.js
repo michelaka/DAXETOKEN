@@ -1,7 +1,7 @@
 // const web3 = new Web3('https://data-seed-prebsc-1-s1.binance.org:8545');
 
 // NETWORK_ID = 97; //97 = BSTTest, 5 = ETH GOERLI
-NETWORK_ID = 97; //97 = BSTTest, 5 = ETH GOERLI, 43113 = testnet
+NETWORK_ID = 56; //97 = BSTTest, 5 = ETH GOERLI, 43113 = testnet
 // const contractAddress = "0xaDF174f0f2498bf391577A3B18CE47cd03c92a66"; // AVAX test net address
 networkName = "PulseChain TestNet ";
 contractAddress = "SET ME BELOW"; // Polygon test net address
@@ -22,11 +22,16 @@ if (NETWORK_ID == 5) {
   RPC_URL = "https://rpc.testnet.pulsechain.com";
   baseDexURL = "https://app.sushi.com/swap?outputCurrency=";
   contractAddress = "0xc999682Cb67D8CE8ACa75b37D37AE214fdd10B2C";
+} else if (NETWORK_ID == 56) {
+  networkName = "BSC";
+  RPC_URL = "https://bsc-dataseed1.binance.org";
+  baseDexURL = "https://pancakeswap.finance/swap?outputCurrency=";
+  contractAddress = "0x5106f787E8778a86D1928ed5ad0B0215dBFA00b8";
 } else if (NETWORK_ID == 97) {
   networkName = "BSC TESTNET";
   RPC_URL = "https://data-seed-prebsc-1-s1.binance.org:8545";
   baseDexURL = "https://pancake.kiemtienonline360.com/#/swap?outputCurrency=";
-  contractAddress = "0xA49B71FBD8BE8b5c6FA72D7A941e40e77Aa95CC3";
+  contractAddress = "0xF7379af8ebfe5524375c639Ee57DF841FEa62bEc";
 } else if (NETWORK_ID == 111) {
   networkName = "VLX TestNet";
   RPC_URL = "https://evmexplorer.testnet.velas.com/rpc";
