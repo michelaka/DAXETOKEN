@@ -59,6 +59,7 @@ buyURL =
 const minABI = [
   "function balanceOf(address) view returns (uint)",
   "function stakedBalanceOf(address) view returns (uint)",
+  "function activeStakeCount() view returns (uint)",
   "function getAllStakesOf(address) view returns (uint[8][])",
   "function name() view returns(string)",
   "function stake(uint, uint, uint) returns(bool)",
@@ -260,10 +261,14 @@ async function connectWalletFollow(netVersion) {
     console.log("Network before balance ", netVersion);
     showBalance("Wrong Network !");
     document.getElementById("connectButtonID").innerHTML = "Wrong Network !";
+    document.getElementById("stakingErrorMessage").innerHTML =
+      "Wrong Network !";
+
     return -1;
   }
   document.getElementById("connectButtonID").innerHTML = "Connecting...";
   document.getElementById("connectButtonID").style.background = "#ffa85c";
+  document.getElementById("refreshButtonID").style.background = "#ffa85c";
 
   try {
     ownerAddress = await window.ethereum.request({
@@ -293,8 +298,7 @@ async function updateInfo() {
 
   // document.getElementById("connectButtonID").style.background = "#F934F0";
   document.getElementById("connectButtonID").style.background = "#17D186";
-  // document.getElementById("connectButtonID").style.background = "#17BFD1";
-  // document.getElementById("connectButtonID").style.background = "#17D186";
+  document.getElementById("refreshButtonID").style.background = "#17D186";
 
   // console.log("Ppdating the page info...");
   showWalletAddress();
@@ -325,6 +329,11 @@ async function updateInfo() {
   }
   showStakedBalances(stakedBalances);
   // showStakedBalance(stakedBalance);
+}
+
+async function updateDashboard() {
+  activeStakeCount = await readDAXContract.activeStakeCount();
+  activeStakeCount = parseInt(ethers.utils.formatEther(daxBalance));
 }
 
 async function selectMaxDax() {
@@ -371,6 +380,46 @@ function showStakedBalances(stakedBalances) {
   // $("#DAXBalanceID2 > tbody").html("");
   // document.getElementById("tbodyID").innerHTML = "";
 
+  for (let a = 0; a < 1; a++) {
+    console.log(
+      " Item 0 ",
+
+      " --> ",
+      stakedBalances[0][0]
+    );
+    console.log(
+      " Item 1 ",
+      a,
+      " --> ",
+      ethers.utils.formatEther(stakedBalances[0][1])
+    );
+    // console.log(" Item i ", a, " --> ", ethers.utils.formatEther(stakedBalances[0][2]);
+    // console.log(" Item i ", a, " --> ", ethers.utils.formatEther(stakedBalances[0][3]);
+    console.log(
+      " Item 4 ",
+
+      " --> ",
+      ethers.utils.formatEther(stakedBalances[0][4])
+    );
+    console.log(
+      " Item 5 ",
+
+      " --> ",
+      ethers.utils.formatEther(stakedBalances[0][5])
+    );
+    console.log(
+      " Item 6",
+      " --> ",
+      ethers.utils.formatEther(stakedBalances[0][6])
+    );
+    console.log(
+      " Item 7 ",
+
+      " --> ",
+      ethers.utils.formatEther(stakedBalances[0][7])
+    );
+  }
+
   // tbl = document.getElementById("DAXBalanceID2");
   tbl = document.getElementById("DAXBalanceID2");
   $("#DAXBalanceID2").find("tr:gt(0)").remove();
@@ -399,7 +448,11 @@ function showStakedBalances(stakedBalances) {
       "*** release Date ",
       releaseDate,
       " balance ",
-      Math.floor(ethers.utils.formatEther(stakedBalances[i][1]))
+      Math.floor(ethers.utils.formatEther(stakedBalances[i][1])),
+      "days staked ",
+      daysStaked,
+      "today ",
+      todayDate
     );
     row = tbl.insertRow(1);
     cell1 = row.insertCell(0);
@@ -493,7 +546,7 @@ function showWalletAddress() {
 }
 
 function copySacAddress() {
-  navigator.clipboard.writeText("0x0fa171becbb88c5df39919c5d6c88a97c6b21dc2");
+  navigator.clipboard.writeText("0x85eda953f3f4140220ee2e02dc79aa5d9a3e8fe3");
 }
 
 function copyDAXEAddress() {

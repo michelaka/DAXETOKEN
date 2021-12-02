@@ -90,4 +90,18 @@ ul.actions {
   .sac-end {
     font-size: 0.5em !important;
   }
+  #daxe_table label {
+    font-size: unset;
+    white-space: normal !important;
+  }
+
+  #daxe_table td {
+    display: block;
+    text-align: center;
+    white-space: normal !important;
+  }
+  #daxe_table td:nth-of-type(2) {
+    font-size: 0.8em;
+    padding: 0 10px 10px 10px;
+  }
 }

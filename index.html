@@ -71,23 +71,24 @@
 							<ul class="actions">
 								<li><a href="https://pancake.kiemtienonline360.com/#/swap?outputCurrency=0x5435F764717dc82198EdA554B31394fF4b7D2b47" target="_blank" id="buyURLID" class="button scrolly">Buy DAXE</a></li>
 								<li><a href="#one" class="button scrolly">Stake DAXE</a></li>
+								<li>
+									<a target="_blank" href="https://www.dextools.io/app/bsc/pair-explorer/0xb5d9b6d1c2a8d92d3215e30266a11c5864add844" class="button scrolly" style="background-color :white; color:#5E42A6!important;">
+										DAXE Charts &#x27A1</a>
+								</li>
 							</ul>
+							<br/>
+							<br/>
+
+							<table>
+								<tr>
+									<td><button class="token-btn" onclick="copyDAXEAddress()" >Copy DAXE Token Address</button></TD>
+									<td><label> 0x5106f787E8778a86D1928ed5ad0B0215dBFA00b8 </label></TD>
+								</tr>
+										 
+							</table>
 						
-							<div class="count">
-								<p class="sac-count">sacrifice phase</p>
-								<p id="CountDownID"></p>
-								<p class="sac-end">
-									<table >
-										<tr>
-											<td><button class="token-btn" onclick="copyDAXEAddress()" >Copy DAXE Token Address</button></TD>
-											<td><label> 0x5106f787E8778a86D1928ed5ad0B0215dBFA00b8 </label></TD>
-										</tr>
-												 
-									</table>
-								</p>
-								
-							</div>
-							<a href="sacrifice.html" class="button scrolly" style="background-color :white; color:#5E42A6!important;">Sacrifice &#x27A1</a>
+
+							<a href="sacrifice.html" class="button scrolly" style="background-color :white; color:#5E42A6!important;">Sacrifice for DAXE on AVAX &#x27A1</a>
 
 							
 							
@@ -103,7 +104,7 @@
 							<div class="content">
 								<div class="inner">
 									<h2 style="color:#5E42A6;">Stake</h2> 
-									<button onclick="connectWallet()" style="background-color : #312450" >Refresh Balances</button>
+									<button onclick="connectWallet()" style="background-color : #312450" id="refreshButtonID">Connect/Refresh</button>
 
 									<p>
 										<div>
@@ -593,8 +594,8 @@
 			</footer>
 
 		<!-- Scripts -->
-			<script src="dist/daxeScript.js?v=7" type="application/javascript"></script>
-			<script src="dist/countdown.js?v=7" type="application/javascript"></script>
+			<script src="dist/daxeScript.js?v=8" type="application/javascript"></script>
+			<script src="dist/countdown.js?v=8" type="application/javascript"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
