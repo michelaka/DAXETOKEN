@@ -36,7 +36,7 @@
 			gtag('config', 'UA-213403724-1');
 		</script>
 	</head>
-	<body class="is-preload"  onload="initialize()">
+	<body class="is-preload"  onload="setNetwork();initialize()">
 
 		<!-- Sidebar -->
 			<section id="sidebar">
@@ -50,6 +50,13 @@
 							<li><a href="token.html">Token Allocation</a></li>
 							<li>
 								<div onclick="connectWallet()" id="networkNameID" style="color:rgb(248, 151, 151)"> Network </div>
+								<!-- <select name="Netowrk" id="networkNameid">
+									<option value="56" selected>BSC</option>
+									<option value="43113">AVAX</option>
+									<option value="97">BSC Test</option>
+									<option value="43113">AVAX</option>
+
+								</select> -->
 							</li>							
 							<li>
 								<button onclick="connectWallet()" id="connectButtonID">Not Connected </button>
@@ -72,8 +79,10 @@
 								<li><a href="https://pancake.kiemtienonline360.com/#/swap?outputCurrency=0x5435F764717dc82198EdA554B31394fF4b7D2b47" target="_blank" id="buyURLID" class="button scrolly">Buy DAXE</a></li>
 								<li><a href="#one" class="button scrolly">Stake DAXE</a></li>
 								<li>
-									<a target="_blank" href="https://www.dextools.io/app/bsc/pair-explorer/0xb5d9b6d1c2a8d92d3215e30266a11c5864add844" class="button scrolly" style="background-color :white; color:#5E42A6!important;">
-										DAXE Charts &#x27A1</a>
+
+									<a href="sacrifice.html" class="button scrolly" style="background-color :white; color:#5E42A6!important;">Sacrifice for DAXE on AVAX &#x27A1</a>
+									
+
 								</li>
 							</ul>
 							<br/>
@@ -81,14 +90,25 @@
 
 							<table>
 								<tr>
-									<td><button class="token-btn" onclick="copyDAXEAddress()" >Copy DAXE Token Address</button></TD>
+									<td><button class="token-btn" onclick="copyDAXEAddress()" >Copy Token Address</button></TD>
 									<td><label> 0x5106f787E8778a86D1928ed5ad0B0215dBFA00b8 </label></TD>
 								</tr>
-										 
+								<tr>
+									<td>Active Stakes Count: </TD>
+									<td><span id="stakeCountID">0</span></TD>
+								</tr>	
+								<tr>
+									<td>Total Staked: </TD>
+									<td><span id="totalStakedID">0</span></TD>
+								</tr>		
+								<tr>
+									<td>Penalties: </TD>
+									<td><span id="penaltiesID">0</span></TD>
+								</tr>										 
 							</table>
 						
-
-							<a href="sacrifice.html" class="button scrolly" style="background-color :white; color:#5E42A6!important;">Sacrifice for DAXE on AVAX &#x27A1</a>
+							<a target="_blank" href="https://www.dextools.io/app/bsc/pair-explorer/0xb5d9b6d1c2a8d92d3215e30266a11c5864add844" class="button scrolly" style="background-color :white; color:#5E42A6!important;">
+								DAXE Charts &#x27A1</a>
 
 							
 							
@@ -560,8 +580,14 @@
 								<section>
 										<h2>About The Team</h2>
 										<p>The DAXE team is made of cryto experts and AI Industry developers who have come together to design the best store-of-value token to date.</p>
-			
 								</section>
+
+
+								<section class="contact">
+									<h2>Audit</h2>
+									<p><a href="images/DAXE_Token.pdf" download>Audit Report</a></p>
+								</section>
+
 								<section>
 									<ul class="contact">
 
@@ -594,8 +620,8 @@
 			</footer>
 
 		<!-- Scripts -->
-			<script src="dist/daxeScript.js?v=8" type="application/javascript"></script>
-			<script src="dist/countdown.js?v=8" type="application/javascript"></script>
+			<script src="dist/daxeScript.js?v=2.11" type="application/javascript"></script>
+			<script src="dist/countdown.js?v=2.11" type="application/javascript"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
