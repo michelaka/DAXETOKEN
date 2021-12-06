@@ -14,6 +14,9 @@ const minABI = [
   "function balanceOf(address) view returns (uint)",
   "function stakedBalanceOf(address) view returns (uint)",
   "function activeStakeCount() view returns (uint)",
+  "function cummulatedPenaltiesAllTime() view returns (uint)",
+  "function totalStaked() view returns (uint)",
+  "function totalSupply() view returns (uint)",
   "function getAllStakesOf(address) view returns (uint[8][])",
   "function name() view returns(string)",
   "function stake(uint, uint, uint) returns(bool)",
@@ -373,7 +376,24 @@ async function updateInfo() {
 
 async function updateDashboard() {
   activeStakeCount = await readDAXContract.activeStakeCount();
-  activeStakeCount = parseInt(ethers.utils.formatEther(daxBalance));
+  // activeStakeCount = parseInt(ethers.utils.formatEther(activeStakeCount));
+  console.log("activeStakeCount = ", activeStakeCount.toNumber());
+  document.getElementById("stakeCountID").innerHTML =
+    "" + activeStakeCount.toNumber();
+
+  totalStaked = await readDAXContract.totalStaked();
+  // activeStakeCount = parseInt(ethers.utils.formatEther(activeStakeCount));
+  totalStaked = parseInt(ethers.utils.formatEther(totalStaked));
+  console.log("TotalStaked = ", totalStaked.toLocaleString());
+  document.getElementById("totalStakedID").innerHTML =
+    "" + totalStaked.toLocaleString();
+
+  penalties = await readDAXContract.cummulatedPenaltiesAllTime();
+  // activeStakeCount = parseInt(ethers.utils.formatEther(activeStakeCount));
+  penalties = parseInt(ethers.utils.formatEther(penalties));
+  console.log("penalties = ", penalties.toLocaleString());
+  document.getElementById("penaltiesID").innerHTML =
+    "" + penalties.toLocaleString();
 }
 
 async function selectMaxDax() {
