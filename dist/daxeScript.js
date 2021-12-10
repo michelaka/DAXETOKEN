@@ -80,8 +80,11 @@ function initializeNetwork() {
     RPC_URL = "https://api.avax.network/ext/bc/C/rpc";
     baseDexURL = "https://app.pangolin.exchange/#/swap?outputCurrency=";
     contractAddress = "0xB441473B4d0280797B6390edE531A1d0679F15c9"; // Polygon test net address
-  } else RPC_URL = "https://data-seed-prebsc-1-s1.binance.org:8545";
-
+  } else {
+    networkName = "WRONG Network";
+    NETWORK_ID = -1;
+    RPC_URL = "";
+  }
   // **************************************************************
   // **************************************************************
   // ****************     GAXE TOKEN by Michel A.******************
