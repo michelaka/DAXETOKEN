@@ -73,13 +73,13 @@ function initializeNetwork() {
   } else if (NETWORK_ID == 43113) {
     networkName = "AVAX TESTNET";
     RPC_URL = "https://api.avax-test.network/ext/bc/C/rpc";
-    baseDexURL = "https://app.pangolin.exchange/#/swap?outputCurrency=";
+    baseDexURL = "https://traderjoexyz.com/#/trade?outputCurrency=";
     contractAddress = "0xd1371A07950eDb8e38E37bA842eA771DBA8D8A77"; // Polygon test net address
   } else if (NETWORK_ID == 43114) {
     networkName = "AVAX";
     RPC_URL = "https://api.avax.network/ext/bc/C/rpc";
-    baseDexURL = "https://app.pangolin.exchange/#/swap?outputCurrency=";
-    contractAddress = "0xB441473B4d0280797B6390edE531A1d0679F15c9"; // Polygon test net address
+    baseDexURL = "https://traderjoexyz.com/#/trade?outputCurrency=";
+    contractAddress = "0x5106f787E8778a86D1928ed5ad0B0215dBFA00b8"; // Polygon test net address
   } else {
     networkName = "WRONG Network";
     NETWORK_ID = -1;
@@ -378,11 +378,17 @@ async function updateInfo() {
 }
 
 async function updateDashboard() {
-  activeStakeCount = await readDAXContract.activeStakeCount();
+  activeStakeCount2 = await readDAXContract.activeStakeCount();
   // activeStakeCount = parseInt(ethers.utils.formatEther(activeStakeCount));
-  console.log("activeStakeCount = ", activeStakeCount.toNumber());
+  console.log("activeStakeCount = ", activeStakeCount2.toNumber());
   document.getElementById("stakeCountID").innerHTML =
-    "" + activeStakeCount.toNumber();
+    "" + activeStakeCount2.toNumber();
+
+  activeStakeCount2 = await readDAXContract.activeStakeCount();
+  // activeStakeCount = parseInt(ethers.utils.formatEther(activeStakeCount));
+  console.log("activeStakeCount = ", activeStakeCount2.toNumber());
+  document.getElementById("stakeCountID").innerHTML =
+    "" + activeStakeCount2.toNumber();
 
   totalStaked = await readDAXContract.totalStaked();
   // activeStakeCount = parseInt(ethers.utils.formatEther(activeStakeCount));
