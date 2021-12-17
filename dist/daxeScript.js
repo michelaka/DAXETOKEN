@@ -163,10 +163,12 @@ function calculateDays() {
   // console.log(
   //   "amount to stake " + $("#amountToStakeID").val() + " days " + numDays
   // );
-  displayProjectedPayout(
+  amountToStake = displayProjectedPayout(
     parseFloat($("#amountToStakeID").val()),
     parseInt(numDays)
   );
+  $("#projectedPayoutID").html(Math.floor(amountToStake));
+
   $("#numDaysStakeID").html(Math.floor(numDays));
 }
 
@@ -203,7 +205,7 @@ function displayProjectedPayout(amountToStake, numDays) {
     //   longStayInterest
     // );
   }
-  $("#projectedPayoutID").html(Math.floor(amountToStake));
+  return amountToStake;
   // return amountToStake;
 }
 
@@ -549,16 +551,35 @@ function showStakedBalances(stakedBalances) {
           )
       ) +
       "</b>";
-    cell7 = row.insertCell(5);
+
+    status = getStakeStatus(
+      parseInt(stakedBalances[i][7]),
+      todayDate,
+      releaseDate
+    );
+    cell6 = row.insertCell(5);
+    if (status == "Ended" || status == "Matured") {
+      cell6.innerHTML = "-";
+    } else
+      cell6.innerHTML =
+        "" +
+        Math.floor(
+          displayProjectedPayout(
+            Math.floor(ethers.utils.formatEther(stakedBalances[i][1])),
+            daysStaked
+          ) + Math.floor(ethers.utils.formatEther(stakedBalances[i][4]))
+        );
+
+    cell7 = row.insertCell(6);
     cell7.innerHTML =
       "" +
       getStakeStatus(parseInt(stakedBalances[i][7]), todayDate, releaseDate);
 
-    cell8 = row.insertCell(6);
+    cell8 = row.insertCell(7);
     cell8.innerHTML =
       "" + Math.floor(ethers.utils.formatEther(stakedBalances[i][5]));
 
-    cell9 = row.insertCell(7);
+    cell9 = row.insertCell(8);
     cell9.innerHTML =
       "" + Math.floor(ethers.utils.formatEther(stakedBalances[i][6])); // printMe =
     //   printMe +
@@ -585,7 +606,7 @@ function getStakeStatus(statusID, todayDate, releaseDate) {
   releaseDate.setDate(releaseDate.getDate());
   console.log("releaseDate -> ", releaseDate, " today -> ", todayDate);
   if (statusID == 1) return "Ended";
-  else if (todayDate > releaseDate) return "Matured";
+  else if (todayDate > releaseDate) return "<b>*Matured*</b>";
   else return "Active";
 }
 

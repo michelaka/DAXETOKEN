@@ -389,3 +389,72 @@ a.close {
 .split p {
   font-size: 0.9em;
 }
+
+/* hero key points */
+
+ul.hero-points li {
+  font-weight: 500;
+  font-size: 0.8em;
+}
+ul.hero-points img {
+  width: 2em;
+  margin-right: 0.8em;
+}
+ul.hero-points {
+  margin-bottom: 2em;
+}
+
+/* new nav menu */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+  width: 100%;
+  padding: 0 5em;
+}
+.logo img {
+  vertical-align: middle;
+}
+.checkbtn {
+  font-size: 2em !important;
+  color: white !important;
+  order: 3;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .checkbtn {
+    display: block;
+  }
+  nav {
+    height: 90px !important;
+  }
+  nav ul {
+    background: #312450;
+    position: fixed;
+    width: 100%;
+    height: calc(100vh - 90px);
+    top: 90px;
+    left: -100%;
+    z-index: 999999;
+    flex-direction: column;
+    padding-top: 2em !important;
+    transition: all 0.5s;
+  }
+  nav ul li {
+    margin-bottom: 1em;
+    margin-left: 0 !important;
+  }
+  #sidebar nav a {
+    font-size: 0.9em;
+  }
+  #check:checked ~ ul {
+    left: 0;
+  }
+}
