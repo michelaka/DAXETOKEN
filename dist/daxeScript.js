@@ -515,6 +515,8 @@ function showStakedBalances(stakedBalances) {
     releaseDate = new Date(+stakedBalances[i][3]);
     todayDate = new Date();
     daysStaked = (todayDate - startDate) / (1000 * 60 * 60 * 24);
+    stakeDuration = (releaseDate - startDate) / (1000 * 60 * 60 * 24);
+    if (daysStaked > stakeDuration) daysStaked = stakeDuration;
     console.log(
       "*** release Date ",
       releaseDate,
@@ -536,11 +538,14 @@ function showStakedBalances(stakedBalances) {
     cell4 = row.insertCell(3);
     cell4.innerHTML = "" + formatDate(releaseDate);
 
+    cell4 = row.insertCell(4);
+    cell4.innerHTML =
+      "" + Math.floor((daysStaked / stakeDuration) * 100) + " %";
     // cell5 = row.insertCell(4);
     // cell5.innerHTML =
     //   "" + Math.floor(ethers.utils.formatEther(stakedBalances[i][4]));
 
-    cell6 = row.insertCell(4);
+    cell6 = row.insertCell(5);
     cell6.innerHTML =
       "<b>" +
       Math.floor(
@@ -557,7 +562,7 @@ function showStakedBalances(stakedBalances) {
       todayDate,
       releaseDate
     );
-    cell6 = row.insertCell(5);
+    cell6 = row.insertCell(6);
     if (status == "Ended" || status == "Matured") {
       cell6.innerHTML = "-";
     } else
@@ -570,16 +575,16 @@ function showStakedBalances(stakedBalances) {
           ) + Math.floor(ethers.utils.formatEther(stakedBalances[i][4]))
         );
 
-    cell7 = row.insertCell(6);
+    cell7 = row.insertCell(7);
     cell7.innerHTML =
       "" +
       getStakeStatus(parseInt(stakedBalances[i][7]), todayDate, releaseDate);
 
-    cell8 = row.insertCell(7);
+    cell8 = row.insertCell(8);
     cell8.innerHTML =
       "" + Math.floor(ethers.utils.formatEther(stakedBalances[i][5]));
 
-    cell9 = row.insertCell(8);
+    cell9 = row.insertCell(9);
     cell9.innerHTML =
       "" + Math.floor(ethers.utils.formatEther(stakedBalances[i][6])); // printMe =
     //   printMe +
@@ -606,7 +611,7 @@ function getStakeStatus(statusID, todayDate, releaseDate) {
   releaseDate.setDate(releaseDate.getDate());
   console.log("releaseDate -> ", releaseDate, " today -> ", todayDate);
   if (statusID == 1) return "Ended";
-  else if (todayDate > releaseDate) return "<b>*Matured*</b>";
+  else if (todayDate > releaseDate) return "Matured";
   else return "Active";
 }
 
