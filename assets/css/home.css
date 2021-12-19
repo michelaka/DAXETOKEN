@@ -189,22 +189,22 @@ p.p-heading {
 
 /* DATES */
 .date:nth-of-type(1)::after {
-  content: "26 NOV";
+  content: "22 NOV";
 }
 .date:nth-of-type(2)::after {
-  content: "26 NOV";
+  content: "12 NOV";
 }
 .date:nth-of-type(3)::after {
-  content: "26 NOV";
+  content: "12 JAN";
 }
 .date:nth-of-type(4)::after {
-  content: "26 NOV";
+  content: "12 Feb";
 }
 .date:nth-of-type(5)::after {
-  content: "26 NOV";
+  content: "12 MAR";
 }
 .date:nth-of-type(6)::after {
-  content: "26 NOV";
+  content: "-- TBD";
 }
 
 /* DATES END */
